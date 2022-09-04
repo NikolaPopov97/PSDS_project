@@ -1,24 +1,53 @@
 Rough algorythm for phaser effect
 
+volatile input;
 a[11025];//coeficient array initialised
 
 
 fixed16 phaser(curr_input,k)
 {
 	fixed16 static PrevInVal;
-	fixed16 static PrevOutVal;	
+	fixed16 static PrevOutVal;
+	fixed16 static PrevMidVal;	
 	fixed16 static PrevX;
 	fixed16 x;
 	fixed16 output = 0;
 
-	output = a[k]*input + PrevInVal;- a[k]*PrevOutVal;
+	MidVal = a[k]*input + PrevInVal - a[k]*PrevMidVal;
 
-	x = output;
-
-	output = a[k]*input + PrevInVal;- a[k]*PrevOutVal;
+	output = a[k - 1]*MidVal + PrevMidVal - a[k - 1]*PrevOutVal;
 	
 	PrevInVal = input;
+	PrevMidVal = MidVal;
+	PrevOutVal = output;
 
-	return output;
-	
+	return output;	
+}
+
+void main()
+{
+	k = 0;
+	up = true;
+	while(on == True)
+	{
+		wait(1/SampleRate);
+		phaser(input,k);
+		if(up == true)
+		{
+			k = k + 1;
+			if(k == 11025)
+			{
+				up == false;
+			}
+		}
+		else	
+		{
+			k = k - 1;
+			if(k == 0)
+			{
+				up == true;
+			}
+		}
+		
+	}
 }
