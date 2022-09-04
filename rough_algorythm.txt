@@ -1,0 +1,24 @@
+Rough algorythm for phaser effect
+
+a[11025];//coeficient array initialised
+
+
+fixed16 phaser(curr_input,k)
+{
+	fixed16 static PrevInVal;
+	fixed16 static PrevOutVal;	
+	fixed16 static PrevX;
+	fixed16 x;
+	fixed16 output = 0;
+
+	output = a[k]*input + PrevInVal;- a[k]*PrevOutVal;
+
+	x = output;
+
+	output = a[k]*input + PrevInVal;- a[k]*PrevOutVal;
+	
+	PrevInVal = input;
+
+	return output;
+	
+}
