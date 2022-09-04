@@ -16,9 +16,6 @@ while ~isDone(fileReader)
     k = k + 1;
 end
 
-%Save original input from source
-input = x
-
 %Initialize LFO for filter modulation
 lfo_freq = 1; % LFO Freq (Hz)
 lfo_min = 200; % LFO minval (Hz)
