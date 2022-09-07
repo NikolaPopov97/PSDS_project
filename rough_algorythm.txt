@@ -1,41 +1,32 @@
-Rough algorythm for phaser effect
 
-volatile input;
-a[11025];//coeficient array initialised
+a[22050] - number of coefficients (coefficients change every 9, 2450 unique values memory could be lowered)
 
+INTERFACES:
+input_in - 16bit 
+on_in - 1bit
+output_out -16bit
 
-fixed16 phaser(curr_input,k)
-{
-	fixed16 static PrevInVal;
-	fixed16 static PrevOutVal;
-	fixed16 static PrevMidVal;	
-	fixed16 static PrevX;
-	fixed16 x;
-	fixed16 output = 0;
+ROUGH ALGORITHM
 
-	MidVal = a[k]*input + PrevInVal - a[k]*PrevMidVal;
+a[22050] //modulated coefficients for half a second (coefficients change every 9, 2450 unique values memory could be lowered)
 
-	output = a[k - 1]*MidVal + PrevMidVal - a[k - 1]*PrevOutVal;
-	
-	PrevInVal = input;
-	PrevMidVal = MidVal;
-	PrevOutVal = output;
-
-	return output;	
-}
-
-void main()
-{
+if(on_in == '1')
+{	
 	k = 0;
 	up = true;
-	while(on == True)
+	PrevInVal = 0;
+	PrevMidVal = 0;
+	PrevOutVal = 0;
+}
+else
+{ 
+	while(on_in == '1')
 	{
-		wait(1/SampleRate);
-		phaser(input,k);
+		input = input_in
 		if(up == true)
 		{
 			k = k + 1;
-			if(k == 11025)
+			if(k == 22050)
 			{
 				up == false;
 			}
@@ -48,6 +39,65 @@ void main()
 				up == true;
 			}
 		}
-		
+
+		MidVal = a[k]*input + PrevInVal - a[k]*PrevMidVal;
+
+		output = a[k]*MidVal + PrevMidVal - a[k]*PrevOutVal;
+
+		PrevInVal = input;
+		PrevMidVal = MidVal;
+		PrevOutVal = output;
+
+		output_out = output;			
 	}
+}
+
+
+ALGORITHM WITHOUT LOOPS
+
+if(on_in == '0')
+{	
+	k = 0;
+	up = true;
+	a
+}
+else
+{ 
+	INS: input = input_in
+	if(up == true)
+	{
+		k = k + 1;
+		if(k == 22050)
+		{
+			up == false;
+		}
+	}
+	else	
+	{
+		k = k - 1;
+		if(k == 0)
+		{
+			up == true;
+		}
+	}
+
+	MidVal = a[k]*input + PrevInVal - a[k]*PrevMidVal;
+
+	output = a[k]*MidVal + PrevMidVal - a[k]*PrevOutVal;
+
+	PrevInVal = input;
+	PrevMidVal = MidVal;
+	PrevOutVal = output;
+	
+`	output_out = output + input;
+
+	if(on_in = '1')
+	{
+		goto INS;
+	}
+	else
+	{
+		goto STOP;
+	}			
+	STOP:
 }

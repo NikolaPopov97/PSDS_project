@@ -25,7 +25,7 @@ input = x;
 %PHASER IMPLEMENTATION
 
 %Initialize LFO for filter modulation
-lfo_freq = 2; % LFO Freq (Hz)
+lfo_freq = 1; % LFO Freq (Hz)
 lfo_min = 200; % LFO minval (Hz)
 lfo_max = 2000; % LFO maxval (HZ)
 lfo = sawtooth(2*pi*lfo_freq*(1:length(x))/fileInfo.SampleRate,0.5); % Generate triangle wave
