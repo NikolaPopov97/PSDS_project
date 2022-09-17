@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd" \
+"../../../../phaser_datapath.srcs/sim_1/new/phaser_datapath_tb.vhd" \
+
+# Do not sort compile order
+nosort
