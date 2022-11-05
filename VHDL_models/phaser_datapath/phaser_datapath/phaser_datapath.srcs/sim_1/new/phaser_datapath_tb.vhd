@@ -42,7 +42,7 @@ architecture Behavioral of phaser_datapath_tb is
     signal Mod_1_in_s : STD_LOGIC_VECTOR (15 downto 0);
     signal Mod_2_in_s : STD_LOGIC_VECTOR (15 downto 0);
     signal input_in_s : STD_LOGIC_VECTOR (15 downto 0);
-    signal output_out_s : STD_LOGIC_VECTOR (31 downto 0);
+    signal output_out_s : STD_LOGIC_VECTOR (15 downto 0);
     signal reset : std_logic;
 begin
     clk_gen:process(clk)
@@ -52,6 +52,10 @@ begin
     
     --stimulus_gen
     reset <= '0', '1' after 5ns;
+    on_in_s <= '1';
+    Mod_1_in_s <= "0000000000000011";
+    Mod_2_in_s <= "0000000000000010";
+    input_in_s <= "0000000000000001";
     DUT: entity work.phaser_datapath(Behavioral)
                  port map (input_in => input_in_s,
                            Mod_1_in => Mod_1_in_s,

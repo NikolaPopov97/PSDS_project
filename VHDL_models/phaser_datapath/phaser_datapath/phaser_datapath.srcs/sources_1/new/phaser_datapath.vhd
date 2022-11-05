@@ -43,7 +43,7 @@ entity phaser_datapath is
            on_in : in STD_LOGIC;
            reset : in STD_LOGIC;
            clk : in STD_LOGIC;
-           output_out : out STD_LOGIC_VECTOR (31 downto 0));
+           output_out : out STD_LOGIC_VECTOR (15 downto 0));
 end phaser_datapath;
 
 architecture Behavioral of phaser_datapath is
@@ -164,16 +164,17 @@ begin
                        up_next <= '0';
                    end if;
                when f1 =>
-                   MidVal_next <= a_reg*input_reg + PrevInVal_reg + a_reg*(PrevMidVal_reg(15 downto 0));
+                   MidVal_next <= a_reg*input_reg + (PrevInVal_reg & x"0000") + a_reg*(PrevMidVal_reg(31 downto 16));
                when f2 =>
-                   output_next <= b_reg*(MidVal_reg(15 downto 0)) + PrevMidVal_reg + b_reg*(PrevOutVal_reg(15 downto 0));
+                   output_next <= b_reg*(MidVal_reg(31 downto 16)) + PrevMidVal_reg + b_reg*(PrevOutVal_reg(31 downto 16));
                when res =>
                    PrevInVal_next <= input_reg;
                    PrevMidVal_next <= MidVal_reg;
                    PrevOutVal_next <= output_reg;
+                   
            end case;
        end process;
        
     -- output value
-    output_out <= output_reg + input_reg;
+    output_out <= output_reg(31 downto 16) + input_reg;
 end Behavioral;

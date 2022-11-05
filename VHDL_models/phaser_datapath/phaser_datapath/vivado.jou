@@ -1,0 +1,101 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Sat Nov  5 20:40:20 2022
+# Process ID: 40096
+# Current directory: C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent52024 C:\Users\user\PSDS_project\VHDL_models\phaser_datapath\phaser_datapath\phaser_datapath.xpr
+# Log file: C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/vivado.log
+# Journal file: C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source phaser_datapath_tb.tcl
+restart
+run all
+close_sim
+launch_simulation
+source phaser_datapath_tb.tcl
+run all
+restart
+run all
+close_sim
+launch_simulation
+source phaser_datapath_tb.tcl
+close_sim
+launch_simulation
+source phaser_datapath_tb.tcl
+add_bp {C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd} 167
+add_bp {C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd} 169
+add_bp {C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd} 171
+run all
+close_sim
+launch_simulation
+source phaser_datapath_tb.tcl
+remove_bps -file {C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd} -line 167
+add_bp {C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd} 167
+remove_bps -file {C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd} -line 169
+remove_bps -file {C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd} -line 167
+remove_bps -file {C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd} -line 171
+run all
+close_sim
+launch_simulation
+source phaser_datapath_tb.tcl
+add_bp {C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd} 167
+add_bp {C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd} 169
+add_bp {C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd} 171
+close_sim
+launch_simulation
+source phaser_datapath_tb.tcl
+run all
+run all
+close_sim
+launch_simulation
+source phaser_datapath_tb.tcl
+run all
+run all
+add_bp {C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd} 178
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+run all
+close_sim
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+source phaser_datapath_tb.tcl
+remove_bps -file {C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd} -line 167
+remove_bps -file {C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd} -line 169
+remove_bps -file {C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd} -line 171
+remove_bps -file {C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd} -line 178
+run all
+close_sim
+launch_simulation
+source phaser_datapath_tb.tcl
+close_sim
+launch_simulation
+source phaser_datapath_tb.tcl
+close_sim
+launch_simulation
+source phaser_datapath_tb.tcl
+close_sim
