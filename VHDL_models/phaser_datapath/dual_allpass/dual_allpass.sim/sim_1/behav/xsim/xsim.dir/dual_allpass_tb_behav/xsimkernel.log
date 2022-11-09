@@ -1,0 +1,7 @@
+Running: xsim.dir/dual_allpass_tb_behav/xsimk.exe -simmode gui -wdb dual_allpass_tb_behav.wdb -simrunnum 0 -socket 63573
+Design successfully loaded
+Design Loading Memory Usage: 6372 KB (Peak: 6372 KB)
+Design Loading CPU Usage: 46 ms
+Simulation completed
+Simulation Memory Usage: 6988 KB (Peak: 6988 KB)
+Simulation CPU Usage: 46 ms

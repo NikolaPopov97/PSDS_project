@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Tue Nov  8 13:11:39 2022
+# Process ID: 38976
+# Current directory: C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/dual_allpass/dual_allpass.runs/synth_1
+# Command line: vivado.exe -log dual_allpass.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source dual_allpass.tcl
+# Log file: C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/dual_allpass/dual_allpass.runs/synth_1/dual_allpass.vds
+# Journal file: C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/dual_allpass/dual_allpass.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source dual_allpass.tcl -notrace

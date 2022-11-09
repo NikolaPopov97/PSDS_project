@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1663423091">
+  <File Type="OPT-HWDEF" Name="phaser_datapath.hwdef"/>
   <File Type="PA-DCP" Name="phaser_datapath.dcp"/>
   <File Type="OPT-DCP" Name="phaser_datapath_opt.dcp"/>
-  <File Type="OPT-HWDEF" Name="phaser_datapath.hwdef"/>
   <File Type="ROUTE-PWR" Name="phaser_datapath_power_routed.rpt"/>
   <File Type="PA-TCL" Name="phaser_datapath.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="phaser_datapath_power_summary_routed.pb"/>
@@ -24,22 +24,22 @@
   <File Type="ROUTE-BLACKBOX-DCP" Name="phaser_datapath_routed_bb.dcp"/>
   <File Type="ROUTE-DRC" Name="phaser_datapath_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="phaser_datapath_drc_routed.pb"/>
-  <File Type="ROUTE-DRC-RPX" Name="phaser_datapath_drc_routed.rpx"/>
   <File Type="BITSTR-MSK" Name="phaser_datapath.msk"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="phaser_datapath_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-RPX" Name="phaser_datapath_drc_routed.rpx"/>
   <File Type="BG-BGN" Name="phaser_datapath.bgn"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="phaser_datapath_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="phaser_datapath_methodology_drc_routed.rpt"/>
   <File Type="BITSTR-RBT" Name="phaser_datapath.rbt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="phaser_datapath_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="phaser_datapath_methodology_drc_routed.rpx"/>
   <File Type="BG-BIN" Name="phaser_datapath.bin"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="phaser_datapath_methodology_drc_routed.pb"/>
   <File Type="ROUTE-PWR-RPX" Name="phaser_datapath_power_routed.rpx"/>
   <File Type="ROUTE-STATUS" Name="phaser_datapath_route_status.rpt"/>
   <File Type="ROUTE-STATUS-PB" Name="phaser_datapath_route_status.pb"/>
   <File Type="ROUTE-TIMINGSUMMARY" Name="phaser_datapath_timing_summary_routed.rpt"/>
   <File Type="ROUTE-TIMING-PB" Name="phaser_datapath_timing_summary_routed.pb"/>
   <File Type="ROUTE-TIMING-RPX" Name="phaser_datapath_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-CLK" Name="phaser_datapath_clock_utilization_routed.rpt"/>
   <File Type="RDI-RDI" Name="phaser_datapath.vdi"/>
+  <File Type="ROUTE-CLK" Name="phaser_datapath_clock_utilization_routed.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="phaser_datapath_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="phaser_datapath_postroute_physopt_bb.dcp"/>
   <File Type="BITSTR-NKY" Name="phaser_datapath.nky"/>

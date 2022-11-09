@@ -49,12 +49,12 @@ end phaser_datapath;
 architecture Behavioral of phaser_datapath is
     type state_type is (idle, pre_load, load, inc, dec, f1, f2, res);
     signal state_reg, state_next: state_type;  
-    signal k_reg, PrevInVal_reg, a_reg, b_reg, input_reg : STD_LOGIC_VECTOR (15 downto 0);
+    signal k_reg, a_reg, b_reg, input_reg : STD_LOGIC_VECTOR (15 downto 0);
     signal up_reg: STD_LOGIC;
-    signal PrevMidVal_reg, MidVal_reg, PrevOutVal_reg, output_reg: STD_LOGIC_VECTOR (31 downto 0);
-    signal k_next, PrevInVal_next, a_next, b_next, input_next : STD_LOGIC_VECTOR (15 downto 0);
+    signal k_next, a_next, b_next, input_next : STD_LOGIC_VECTOR (15 downto 0);
     signal up_next: STD_LOGIC;
-    signal PrevMidVal_next, MidVal_next, PrevOutVal_next, output_next: STD_LOGIC_VECTOR (31 downto 0);
+    signal PrevMidVal_reg, MidVal_reg, PrevOutVal_reg, output_reg, PrevInVal_reg: SIGNED(15 downto 0);
+    signal PrevMidVal_next, MidVal_next, PrevOutVal_next, output_next,PrevInVal_next: SIGNED(15 downto 0);
 begin
     --Registers
     process(clk,reset)
@@ -164,11 +164,11 @@ begin
                        up_next <= '0';
                    end if;
                when f1 =>
-                   MidVal_next <= a_reg*input_reg + (PrevInVal_reg & x"0000") + a_reg*(PrevMidVal_reg(31 downto 16));
+                   MidVal_next <= signed(a_reg)*signed(input_reg) + PrevInVal_reg + signed(a_reg)*PrevMidVal_reg;
                when f2 =>
-                   output_next <= b_reg*(MidVal_reg(31 downto 16)) + PrevMidVal_reg + b_reg*(PrevOutVal_reg(31 downto 16));
+                   output_next <= signed(b_reg)*MidVal_reg + PrevMidVal_reg + signed(b_reg)*PrevOutVal_reg;
                when res =>
-                   PrevInVal_next <= input_reg;
+                   PrevInVal_next <= signed(input_reg);
                    PrevMidVal_next <= MidVal_reg;
                    PrevOutVal_next <= output_reg;
                    
@@ -176,5 +176,5 @@ begin
        end process;
        
     -- output value
-    output_out <= output_reg(31 downto 16) + input_reg;
+    output_out <= std_logic_vector(signed(output_reg) + signed(input_reg));
 end Behavioral;
