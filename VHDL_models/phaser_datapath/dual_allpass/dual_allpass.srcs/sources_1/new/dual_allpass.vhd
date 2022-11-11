@@ -92,12 +92,12 @@ begin
                 a_x_in_next <= a*input;
                 a_x_pmid_next <= a*pmid_reg;
             when "001" =>
-                mid_next <= a_x_in_next(28 downto 13) + pin_reg + a_x_pmid_next(28 downto 13);
+                mid_next <= a_x_in_next(29 downto 14) + pin_reg - a_x_pmid_next(29 downto 14);
             when "010" =>
                 b_x_mid_next <= b*mid_reg; 
                 b_x_pout_next <= b*pout_reg;
             when "011" =>
-                out_next <= b_x_mid_next(28 downto 13) + pmid_reg + b_x_pout_next(28 downto 13);
+                out_next <= b_x_mid_next(29 downto 14) + pmid_reg - b_x_pout_next(29 downto 14);
             when others =>
                 pmid_next <= mid_reg;
                 pin_next <= input;
@@ -105,5 +105,5 @@ begin
         end case;
     end process;
     
-    q <= out_reg + input;
+    q <= signed(out_reg) + signed(input);
 end Behavioral;

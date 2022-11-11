@@ -53,13 +53,14 @@ begin
 
     --stimulus_gen
     reset <= '0', '1' after 5ns;
-    a <= x"E001";
-    b <= x"E001";
-    input <= x"1FFF";
+    a <= x"FFFF";
+    b <= x"FFFF";
+    input <= x"3FFF";
     control <= "000", "001" after 15ns, "010" after 35ns, "011" after 55ns, "100" after 75ns, 
                "000" after 95ns, "001" after 115ns, "010" after 135ns, "011" after 155ns, 
                "100" after 175ns, "000" after 195ns ,"001" after 215ns, "010" after 235ns, "011" after 255ns, 
-               "100" after 275ns;
+               "100" after 275ns,"000" after 295ns ,"001" after 315ns, "010" after 335ns, "011" after 355ns, 
+               "100" after 375ns;
     
     DUT: entity work.dual_allpass(Behavioral)
                 generic map(WIDTH => 16)
