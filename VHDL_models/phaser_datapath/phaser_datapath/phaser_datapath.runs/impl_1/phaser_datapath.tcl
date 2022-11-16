@@ -65,12 +65,16 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  reset_param project.defaultXPMLibraries 
-  open_checkpoint C:/Users/milut/OneDrive/Documents/GitHub/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.runs/impl_1/phaser_datapath.dcp
-  set_property webtalk.parent_dir C:/Users/milut/OneDrive/Documents/GitHub/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.cache/wt [current_project]
-  set_property parent.project_path C:/Users/milut/OneDrive/Documents/GitHub/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.xpr [current_project]
-  set_property ip_output_repo C:/Users/milut/OneDrive/Documents/GitHub/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.cache/ip [current_project]
+  set_param project.hsv.suppressChildGraphs 0
+  create_project -in_memory -part xc7z010clg400-1
+  set_property design_mode GateLvl [current_fileset]
+  set_param project.singleFileAddWarning.threshold 0
+  set_property webtalk.parent_dir C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.cache/wt [current_project]
+  set_property parent.project_path C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.xpr [current_project]
+  set_property ip_output_repo C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
+  add_files -quiet C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.runs/synth_1/phaser_datapath.dcp
+  link_design -top phaser_datapath -part xc7z010clg400-1
   close_msg_db -file init_design.pb
 } RESULT]
 if {$rc} {

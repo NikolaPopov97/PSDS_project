@@ -11,9 +11,9 @@ echo "Please update the PATH and LD_LIBRARY_PATH variables below, before executi
 exit
 
 if [ -z "$PATH" ]; then
-  PATH=C:/Xilinx/SDK/2017.4/bin;C:/Xilinx/Vivado/2017.4/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2017.4/ids_lite/ISE/lib/nt64:C:/Xilinx/Vivado/2017.4/bin
+  PATH=D:/Program_files/Vivado/SDK/2017.4/bin;D:/Program_files/Vivado/Vivado/2017.4/ids_lite/ISE/bin/nt64;D:/Program_files/Vivado/Vivado/2017.4/ids_lite/ISE/lib/nt64:D:/Program_files/Vivado/Vivado/2017.4/bin
 else
-  PATH=C:/Xilinx/SDK/2017.4/bin;C:/Xilinx/Vivado/2017.4/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2017.4/ids_lite/ISE/lib/nt64:C:/Xilinx/Vivado/2017.4/bin:$PATH
+  PATH=D:/Program_files/Vivado/SDK/2017.4/bin;D:/Program_files/Vivado/Vivado/2017.4/ids_lite/ISE/bin/nt64;D:/Program_files/Vivado/Vivado/2017.4/ids_lite/ISE/lib/nt64:D:/Program_files/Vivado/Vivado/2017.4/bin:$PATH
 fi
 export PATH
 
@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/milut/OneDrive/Documents/GitHub/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.runs/synth_1'
+HD_PWD='C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

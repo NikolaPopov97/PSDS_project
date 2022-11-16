@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date             : Sat Sep 17 16:00:30 2022
-| Host             : LAPTOP-DDI9TB7U running 64-bit major release  (build 9200)
+| Date             : Wed Nov 16 15:40:46 2022
+| Host             : DESKTOP-US2MUQE running 64-bit major release  (build 9200)
 | Command          : report_power -file phaser_datapath_power_routed.rpt -pb phaser_datapath_power_summary_routed.pb -rpx phaser_datapath_power_routed.rpx
 | Design           : phaser_datapath
 | Device           : xc7z010clg400-1
@@ -30,11 +30,11 @@ Table of Contents
 ----------
 
 +--------------------------+----------------------------------+
-| Total On-Chip Power (W)  | 15.345 (Junction temp exceeded!) |
+| Total On-Chip Power (W)  | 13.769 (Junction temp exceeded!) |
 | Design Power Budget (W)  | Unspecified*                     |
 | Power Budget Margin (W)  | NA                               |
-| Dynamic (W)              | 14.598                           |
-| Device Static (W)        | 0.747                            |
+| Dynamic (W)              | 12.994                           |
+| Device Static (W)        | 0.775                            |
 | Effective TJA (C/W)      | 11.5                             |
 | Max Ambient (C)          | 0.0                              |
 | Junction Temperature (C) | 125.0                            |
@@ -52,17 +52,18 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     1.234 |      391 |       --- |             --- |
-|   LUT as Logic |     1.028 |      128 |     17600 |            0.73 |
-|   CARRY4       |     0.158 |       28 |      4400 |            0.64 |
-|   Register     |     0.043 |      196 |     35200 |            0.56 |
+| Slice Logic    |     1.322 |      338 |       --- |             --- |
+|   LUT as Logic |     1.199 |      144 |     17600 |            0.82 |
+|   CARRY4       |     0.096 |       16 |      4400 |            0.36 |
+|   Register     |     0.021 |      142 |     35200 |            0.40 |
 |   BUFG         |     0.006 |        1 |        32 |            3.13 |
-|   Others       |     0.000 |        4 |       --- |             --- |
-| Signals        |     1.458 |      553 |       --- |             --- |
-| DSPs           |     3.132 |        4 |        80 |            5.00 |
-| I/O            |     8.774 |       83 |       100 |           83.00 |
-| Static Power   |     0.747 |          |           |                 |
-| Total          |    15.345 |          |           |                 |
+|   Others       |     0.000 |        6 |       --- |             --- |
+| Signals        |     1.724 |      332 |       --- |             --- |
+| Block RAM      |     1.820 |       16 |        60 |           26.67 |
+| DSPs           |     4.524 |        4 |        80 |            5.00 |
+| I/O            |     3.604 |       35 |       100 |           35.00 |
+| Static Power   |     0.775 |          |           |                 |
+| Total          |    13.769 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,16 +73,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     6.153 |       6.024 |      0.129 |
-| Vccaux    |       1.800 |     0.742 |       0.702 |      0.040 |
+| Vccint    |       1.000 |     9.441 |       9.302 |      0.138 |
+| Vccaux    |       1.800 |     0.329 |       0.289 |      0.040 |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
-| Vcco18    |       1.800 |     4.063 |       4.062 |      0.001 |
+| Vcco18    |       1.800 |     1.674 |       1.673 |      0.001 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.011 |       0.000 |      0.011 |
+| Vccbram   |       1.000 |     0.189 |       0.160 |      0.029 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |
@@ -146,7 +147,8 @@ Table of Contents
 +-----------------+-----------+
 | Name            | Power (W) |
 +-----------------+-----------+
-| phaser_datapath |    14.598 |
+| phaser_datapath |    12.994 |
+|   rom           |     2.125 |
 +-----------------+-----------+
 
 

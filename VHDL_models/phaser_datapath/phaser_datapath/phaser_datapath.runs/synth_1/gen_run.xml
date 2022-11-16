@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1663422928">
+<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1668609507">
   <File Type="PA-TCL" Name="phaser_datapath.tcl"/>
   <File Type="REPORTS-TCL" Name="phaser_datapath_reports.tcl"/>
   <File Type="RDS-RDS" Name="phaser_datapath.vds"/>
@@ -8,6 +8,12 @@
   <File Type="RDS-DCP" Name="phaser_datapath.dcp"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/coef_rom.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/phaser_datapath.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>

@@ -39,7 +39,6 @@ architecture Behavioral of phaser_datapath_tb is
     constant half_period: time := 10ns;
     signal on_in_s : STD_LOGIC;
     signal clk :  STD_LOGIC := '0';
-    signal mod_in_s : STD_LOGIC_VECTOR (15 downto 0);
     signal input_in_s : STD_LOGIC_VECTOR (15 downto 0);
     signal output_out_s : SIGNED(15 downto 0);
     signal reset : std_logic;
@@ -52,11 +51,9 @@ begin
     --stimulus_gen
     reset <= '0', '1' after 5ns;
     on_in_s <= '1';
-    mod_in_s <= x"C005";
     input_in_s <= x"1Fff";
     DUT: entity work.phaser_datapath(Behavioral)
                  port map (input_in => input_in_s,
-                           mod_in => mod_in_s,
                            on_in => on_in_s,
                            reset => reset,
                            clk => clk,

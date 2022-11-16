@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1663423091">
-  <File Type="PA-DCP" Name="phaser_datapath.dcp"/>
-  <File Type="OPT-DCP" Name="phaser_datapath_opt.dcp"/>
-  <File Type="OPT-HWDEF" Name="phaser_datapath.hwdef"/>
+<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1668609565">
   <File Type="ROUTE-PWR" Name="phaser_datapath_power_routed.rpt"/>
   <File Type="PA-TCL" Name="phaser_datapath.tcl"/>
+  <File Type="PWROPT-DCP" Name="phaser_datapath_pwropt.dcp"/>
   <File Type="ROUTE-PWR-SUM" Name="phaser_datapath_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="phaser_datapath_reports.tcl"/>
   <File Type="BG-DRC" Name="phaser_datapath.drc"/>
+  <File Type="OPT-HWDEF" Name="phaser_datapath.hwdef"/>
+  <File Type="OPT-DCP" Name="phaser_datapath_opt.dcp"/>
   <File Type="OPT-DRC" Name="phaser_datapath_drc_opted.rpt"/>
-  <File Type="PWROPT-DCP" Name="phaser_datapath_pwropt.dcp"/>
   <File Type="PLACE-DCP" Name="phaser_datapath_placed.dcp"/>
   <File Type="PLACE-IO" Name="phaser_datapath_io_placed.rpt"/>
   <File Type="PLACE-UTIL" Name="phaser_datapath_utilization_placed.rpt"/>
@@ -50,6 +49,12 @@
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/coef_rom.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/phaser_datapath.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>

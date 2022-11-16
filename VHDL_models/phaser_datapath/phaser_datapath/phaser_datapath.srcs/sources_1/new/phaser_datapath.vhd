@@ -38,7 +38,6 @@ use ieee.numeric_std.all;
 
 entity phaser_datapath is
     Port ( input_in : in STD_LOGIC_VECTOR (15 downto 0);
-           mod_in : in STD_LOGIC_VECTOR (15 downto 0);
            on_in : in STD_LOGIC;
            reset : in STD_LOGIC;
            clk : in STD_LOGIC;
@@ -49,6 +48,8 @@ architecture Behavioral of phaser_datapath is
     type state_type is (idle, pre_load, load, inc, dec, pre_f1, f1, pre_f2, f2, res);
     signal state_reg, state_next: state_type;  
     signal k_reg,k_next  : UNSIGNED (15 downto 0);
+    signal k : STD_LOGIC_VECTOR(15 downto 0);
+    signal mod_in: STD_LOGIC_VECTOR (15 downto 0);
     signal up_reg, up_next: STD_LOGIC;
     signal a_reg, input_reg, a_next, input_next : SIGNED (15 downto 0);
     signal PrevMidVal_reg, MidVal_reg, PrevOutVal_reg, output_reg, PrevInVal_reg: SIGNED(15 downto 0);
@@ -90,7 +91,15 @@ begin
             a_x_pout_reg <= a_x_pout_next;  
         end if;
     end process;
-
+    
+    k <= std_logic_vector(22049 - k_reg);
+    --ROM
+    rom:entity work.coef_rom(Behavioral)
+        port map(clk => clk,
+                 data => mod_in,
+                 addr => k);
+    
+    
     --Next state logic
     process(on_in, up_reg, state_reg)
     begin
@@ -158,7 +167,7 @@ begin
                    a_next <= signed(mod_in);
                when inc =>
                    k_next <= k_reg + 1;
-                   if k_reg = 22049 then
+                   if k_reg = 22048 then
                        up_next <= '0';
                    else
                        up_next <= '1';
@@ -185,8 +194,7 @@ begin
                    PrevMidVal_next <= MidVal_reg;
                    PrevOutVal_next <= output_reg;                 
            end case;
-       end process;
-       
+       end process;       
     -- output value
     output_out <= output_reg + input_reg;
 end Behavioral;
