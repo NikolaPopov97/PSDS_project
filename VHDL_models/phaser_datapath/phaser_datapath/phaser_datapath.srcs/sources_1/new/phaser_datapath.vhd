@@ -41,16 +41,17 @@ entity phaser_datapath is
            on_in : in STD_LOGIC;
            reset : in STD_LOGIC;
            clk : in STD_LOGIC;
+           out_valid : out STD_LOGIC;
            output_out : out SIGNED(15 downto 0));
 end phaser_datapath;
 
 architecture Behavioral of phaser_datapath is
-    type state_type is (idle, pre_load, load, inc, dec, pre_f1, f1, pre_f2, f2, res);
+    type state_type is (idle, load, inc, dec, pre_f1, f1, pre_f2, f2, res);
     signal state_reg, state_next: state_type;  
     signal k_reg,k_next  : UNSIGNED (15 downto 0);
     signal k : STD_LOGIC_VECTOR(15 downto 0);
     signal mod_in: STD_LOGIC_VECTOR (15 downto 0);
-    signal up_reg, up_next: STD_LOGIC;
+    signal up_reg, up_next, valid_reg, valid_next: STD_LOGIC;
     signal a_reg, input_reg, a_next, input_next : SIGNED (15 downto 0);
     signal PrevMidVal_reg, MidVal_reg, PrevOutVal_reg, output_reg, PrevInVal_reg: SIGNED(15 downto 0);
     signal PrevMidVal_next, MidVal_next, PrevOutVal_next, output_next,PrevInVal_next: SIGNED(15 downto 0);
@@ -61,7 +62,7 @@ begin
     begin
         if reset = '0' then
             state_reg <= idle;
-            up_reg <= '0';
+            up_reg <= '1';
             k_reg <= (others => '0');
             PrevInVal_reg <= (others => '0');
             a_reg <= (others => '0');
@@ -73,7 +74,8 @@ begin
             a_x_in_reg <= (others => '0');
             a_x_pmid_reg <= (others => '0');
             a_x_mid_reg <= (others => '0');
-            a_x_pout_reg <= (others => '0');  
+            a_x_pout_reg <= (others => '0');
+            valid_reg <= '0';  
         elsif clk'event and clk = '1' then
             state_reg <= state_next;
             up_reg <= up_next;
@@ -88,7 +90,8 @@ begin
             a_x_in_reg <= a_x_in_next;
             a_x_pmid_reg <= a_x_pmid_next;
             a_x_mid_reg <= a_x_mid_next;
-            a_x_pout_reg <= a_x_pout_next;  
+            a_x_pout_reg <= a_x_pout_next;
+            valid_reg <= valid_next;  
         end if;
     end process;
     
@@ -106,12 +109,10 @@ begin
         case state_reg is
             when idle =>
                 if on_in = '1' then
-                    state_next <= pre_load;
+                    state_next <= load;
                 else
                     state_next <= idle;
                 end if;
-            when pre_load =>
-                state_next <= load;
             when load =>
                 if up_reg = '1' then
                     state_next <= inc;
@@ -154,17 +155,14 @@ begin
            a_x_in_next <= a_x_in_reg;
            a_x_pmid_next <= a_x_pmid_reg;
            a_x_mid_next <= a_x_mid_reg;
-           a_x_pout_next <= a_x_pout_reg;            
+           a_x_pout_next <= a_x_pout_reg;
+           valid_next <= valid_reg;      
            case state_reg is
                when idle =>
-               when pre_load =>
-                   up_next <= '1';
-                   k_next <= (others => '0');
-                   PrevInVal_next <= (others => '0');
-                   a_next <= (others => '0');
                when load =>
                    input_next <= signed(input_in);
                    a_next <= signed(mod_in);
+                   valid_next <= '0'; 
                when inc =>
                    k_next <= k_reg + 1;
                    if k_reg = 22048 then
@@ -192,9 +190,11 @@ begin
                when res =>
                    PrevInVal_next <= input_reg;
                    PrevMidVal_next <= MidVal_reg;
-                   PrevOutVal_next <= output_reg;                 
+                   PrevOutVal_next <= output_reg;
+                   valid_next <= '1';                 
            end case;
        end process;       
     -- output value
     output_out <= output_reg + input_reg;
+    out_valid <= valid_reg;
 end Behavioral;

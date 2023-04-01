@@ -42,6 +42,7 @@ architecture Behavioral of phaser_datapath_tb is
     signal input_in_s : STD_LOGIC_VECTOR (15 downto 0);
     signal output_out_s : SIGNED(15 downto 0);
     signal reset : std_logic;
+    signal out_valid: std_logic;
 begin
     clk_gen:process(clk)
     begin
@@ -50,13 +51,14 @@ begin
     
     --stimulus_gen
     reset <= '0', '1' after 5ns;
-    on_in_s <= '1';
-    input_in_s <= x"1Fff";
+    on_in_s <= '1', '0' after 25ns;
+    input_in_s <= x"E001", x"1FFF" after 500ns;
     DUT: entity work.phaser_datapath(Behavioral)
                  port map (input_in => input_in_s,
                            on_in => on_in_s,
                            reset => reset,
                            clk => clk,
+                           out_valid => out_valid,
                            output_out => output_out_s
                  );
 end Behavioral;
