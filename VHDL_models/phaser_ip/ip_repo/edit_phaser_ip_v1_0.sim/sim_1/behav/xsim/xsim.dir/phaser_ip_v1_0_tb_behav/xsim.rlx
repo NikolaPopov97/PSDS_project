@@ -1,0 +1,12 @@
+
+{ 
+    crc :  5000332459515072790  , 
+    ccp_crc :  0  , 
+    cmdline : " -wto e2542fbfdb3f4ce293ffd5aa3e6b7c63 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot phaser_ip_v1_0_tb_behav xil_defaultlib.phaser_ip_v1_0_tb" , 
+    buildDate : "Dec 15 2017" , 
+    buildTime : "21:07:18" , 
+    linkCmd : "D:\\Program_files\\Vivado\\Vivado\\2017.4\\data\\..\\tps\\mingw\\6.2.0\\win64.o\\nt\\bin\\gcc.exe -Wa,-W  -O -Wl,--stack,104857600 -o \"xsim.dir/phaser_ip_v1_0_tb_behav/xsimk.exe\"   \"xsim.dir/phaser_ip_v1_0_tb_behav/obj/xsim_0.win64.obj\" \"xsim.dir/phaser_ip_v1_0_tb_behav/obj/xsim_1.win64.obj\" \"D:\\Program_files\\Vivado\\Vivado\\2017.4\\lib\\win64.o\\\\librdi_simulator_kernel.dll\" \"D:\\Program_files\\Vivado\\Vivado\\2017.4\\lib\\win64.o\\\\librdi_simbridge_kernel.dll\"" , 
+    aggregate_nets : 
+    [ 
+    ] 
+} 

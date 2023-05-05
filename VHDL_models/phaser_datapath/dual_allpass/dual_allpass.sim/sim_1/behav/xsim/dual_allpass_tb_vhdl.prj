@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../dual_allpass.srcs/sources_1/new/dual_allpass.vhd" \
+"../../../../dual_allpass.srcs/sim_1/new/dual_allpass_tb.vhd" \
+
+# Do not sort compile order
+nosort

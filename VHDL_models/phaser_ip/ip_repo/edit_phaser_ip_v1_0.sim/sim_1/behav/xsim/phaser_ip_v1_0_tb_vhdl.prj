@@ -1,0 +1,11 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../edit_phaser_ip_v1_0.srcs/sources_1/imports/new/coef_rom.vhd" \
+"../../../../edit_phaser_ip_v1_0.srcs/sources_1/imports/new/mem_subsys.vhd" \
+"../../../../edit_phaser_ip_v1_0.srcs/sources_1/imports/new/phaser_datapath.vhd" \
+"../../../../phaser_ip_1.0/hdl/phaser_ip_v1_0.vhd" \
+"../../../../phaser_ip_1.0/hdl/phaser_ip_v1_0_S00_AXI.vhd" \
+"../../../../edit_phaser_ip_v1_0.srcs/sim_1/new/phaser_ip_v1_0_tb.vhd" \
+
+# Do not sort compile order
+nosort

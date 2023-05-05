@@ -1,0 +1,49 @@
+			     Phaser Algorithm
+
+
+while(1)
+{								
+	while(on == 1)
+	{
+		input = input_in; /*load next input value*/
+		a = mod[k]; /*load next coefficient*/
+		valid = 0; /*output value not stable anymore*/
+
+		/*calculate next coefficient value*/
+		if(up == 1)
+		{
+			if(k == 22048)
+			{
+				up = 0; /*change sawtooth direction*/
+			}
+			else
+			{
+				up = 1; /*continue still more coeff*/
+			}
+			k++;
+		}
+		else
+		{
+			if(k == 1)
+			{
+				up = 1; /*change sawtooth direction*/
+			}
+			else
+			{
+				up = 0; /*continue still more coeff*/
+			}
+			k--;
+		}
+	
+		/*Main calculation part, two series all-pass filters*/
+
+		MidVal = a*input + PrevInVal - a*PrevMidVal;/*First all-pass*/
+		output = a*MidVal + PrevMidVal - a*PrevOutVal;/*Second all-pass*/
+	
+		/*Add input and all-pass branch*/
+		out = output + input;
+		valid = 1;
+	}	
+}
+
+

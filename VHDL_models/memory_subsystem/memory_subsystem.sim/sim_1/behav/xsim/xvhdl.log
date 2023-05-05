@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/user/PSDS_project/VHDL_models/memory_subsystem/memory_subsystem.srcs/sources_1/new/mem_subsys.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity mem_subsys
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/user/PSDS_project/VHDL_models/memory_subsystem/memory_subsystem.srcs/sim_1/new/mem_subsys_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity mem_subsys_tb
