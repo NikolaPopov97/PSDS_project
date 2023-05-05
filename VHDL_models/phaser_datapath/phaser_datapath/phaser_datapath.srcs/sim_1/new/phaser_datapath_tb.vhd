@@ -51,8 +51,8 @@ begin
     
     --stimulus_gen
     reset <= '0', '1' after 5ns;
-    on_in_s <= '1', '0' after 25ns;
-    input_in_s <= x"E001", x"1FFF" after 500ns;
+    on_in_s <= '0', '1' after 25ns;
+    input_in_s <= x"2001";
     DUT: entity work.phaser_datapath(Behavioral)
                  port map (input_in => input_in_s,
                            on_in => on_in_s,

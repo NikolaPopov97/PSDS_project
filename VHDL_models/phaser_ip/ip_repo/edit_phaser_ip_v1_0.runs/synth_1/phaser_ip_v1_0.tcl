@@ -30,6 +30,9 @@ set_property ip_repo_paths c:/Users/user/PSDS_project/VHDL_models/phaser_ip/ip_r
 set_property ip_output_repo c:/Users/user/PSDS_project/VHDL_models/phaser_ip/ip_repo/edit_phaser_ip_v1_0.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib {
+  C:/Users/user/PSDS_project/VHDL_models/phaser_ip/ip_repo/edit_phaser_ip_v1_0.srcs/sources_1/imports/new/coef_rom.vhd
+  C:/Users/user/PSDS_project/VHDL_models/phaser_ip/ip_repo/edit_phaser_ip_v1_0.srcs/sources_1/imports/new/mem_subsys.vhd
+  C:/Users/user/PSDS_project/VHDL_models/phaser_ip/ip_repo/edit_phaser_ip_v1_0.srcs/sources_1/imports/new/phaser_datapath.vhd
   C:/Users/user/PSDS_project/VHDL_models/phaser_ip/ip_repo/phaser_ip_1.0/hdl/phaser_ip_v1_0_S00_AXI.vhd
   C:/Users/user/PSDS_project/VHDL_models/phaser_ip/ip_repo/phaser_ip_1.0/hdl/phaser_ip_v1_0.vhd
 }

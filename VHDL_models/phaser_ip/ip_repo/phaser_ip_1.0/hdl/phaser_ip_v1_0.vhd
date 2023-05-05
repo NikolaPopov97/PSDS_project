@@ -146,7 +146,7 @@ phaser_ip_v1_0_S00_AXI_inst : phaser_ip_v1_0_S00_AXI
 	);
 
 	-- Add user logic here
-	reset_s <= not s00_axi_aresetn;
+	reset_s <= s00_axi_aresetn;
 	
 	--Memory subsystem
 	memory: entity work.mem_subsys(Behavioral)

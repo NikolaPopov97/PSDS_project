@@ -45,7 +45,7 @@ architecture Behavioral of phaser_ip_v1_0_tb is
  constant C_S00_AXI_ADDR_WIDTH_c : integer := 4;
  
   -- Ports of Axi-Lite Slave Bus Interface S01_AXI
- signal s00_axi_aclk_s : std_logic := '0';
+
  signal s00_axi_aresetn_s : std_logic := '1';
  signal s00_axi_awaddr_s : std_logic_vector(C_S00_AXI_ADDR_WIDTH_c-1 downto 0):= (others => '0');
  signal s00_axi_awprot_s : std_logic_vector(2 downto 0) := (others => '0');
@@ -93,50 +93,67 @@ stimulus_generator: process
     s00_axi_aresetn_s <= '1';
     wait until falling_edge(clk_s);
     
-    report "Loading input value";
+    -------------------------------------------------------------------------------------------
+    -- Do a single calculation for 10 times --
+    -------------------------------------------------------------------------------------------
+    for i in 1 to 10 loop
+    -------------------------------------------------------------------------------------------
+    -- Read result of phaser operation --
+    -------------------------------------------------------------------------------------------
+    
      -- Set input value
      wait until falling_edge(clk_s);
       s00_axi_awaddr_s <= "0000";
       s00_axi_awvalid_s <= '1';
-      s00_axi_wdata_s <= x"000003FF";
+      s00_axi_wdata_s <= x"00002001";
       s00_axi_wvalid_s <= '1';
       s00_axi_wstrb_s <= "1111";
       s00_axi_bready_s <= '1';
       wait until s00_axi_awready_s = '1';
       wait until s00_axi_awready_s = '0';
-    report "Loading input value";
-     -- Set input value
+    
+     -- Set on signal for starting calculation
       wait until falling_edge(clk_s);
       s00_axi_awaddr_s <= "0001";
+      wait until falling_edge(clk_s);
       s00_axi_awvalid_s <= '1';
       s00_axi_wdata_s <= x"00000001";
       s00_axi_wvalid_s <= '1';
       s00_axi_wstrb_s <= "1111";
       s00_axi_bready_s <= '1';
-      wait until s00_axi_bvalid_s = '0';
-      wait until falling_edge(clk_s);
-      s00_axi_bready_s <= '0';
-      wait until falling_edge(clk_s);
+      wait until s00_axi_awready_s = '1';
+      wait until s00_axi_awready_s = '0';
+      
+      --Reset on signal (stop next calculation from starting)
+      s00_axi_awvalid_s <= '1';
+      s00_axi_wdata_s <= x"00000000";
+      s00_axi_wvalid_s <= '1';
+      s00_axi_wstrb_s <= "1111";
+      s00_axi_bready_s <= '1';
+      wait until s00_axi_awready_s = '1';
+      wait until s00_axi_awready_s = '0';
       
         
-        report "Waiting for the phaser to complete!";
+      -------------------------------------------------------------------------------------------
+      -- Wait for phaser calculation to finish --
+      -------------------------------------------------------------------------------------------
        loop
-       -- Read the content of the Status register
-       wait until falling_edge(clk_s);
+       -- Read the content of the Valid register
        s00_axi_araddr_s <= "0010";
+       wait until falling_edge(clk_s);
        s00_axi_arvalid_s <= '1';
        s00_axi_rready_s <= '1';
+       wait until falling_edge(clk_s);
        wait until s00_axi_arready_s = '1';
        axi_read_data_v := s00_axi_rdata_s;
        wait until s00_axi_arready_s = '0';
        wait until falling_edge(clk_s);
-       s00_axi_araddr_s <= "0000";
        s00_axi_arvalid_s <= '0';
        s00_axi_rready_s <= '0';
       
-       -- Check is the 1st bit of the Status register set to one
+       -- Check is the 1st bit of the Valid register set to one
        if (axi_read_data_v(0) = '1') then
-       -- Matrix multiplication process completed
+       -- Phaser calculation completed
        exit;
        else
        wait for 1000 ns;
@@ -145,10 +162,7 @@ stimulus_generator: process
       
        -------------------------------------------------------------------------------------------
        -- Read result of phaser operation --
-       -------------------------------------------------------------------------------------------
-        report "Phaser result!";
-      loop
-      -- Read the content of the Status register
+       -------------------------------------------------------------------------------------------    
       wait until falling_edge(clk_s);
       s00_axi_araddr_s <= "0001";
       s00_axi_arvalid_s <= '1';
@@ -160,8 +174,8 @@ stimulus_generator: process
       s00_axi_araddr_s <= "0000";
       s00_axi_arvalid_s <= '0';
       s00_axi_rready_s <= '0';
+      output_final <= s00_axi_rdata_s;
       end loop;
-    output_final <= axi_read_data_v;
     wait;
  end process;
  

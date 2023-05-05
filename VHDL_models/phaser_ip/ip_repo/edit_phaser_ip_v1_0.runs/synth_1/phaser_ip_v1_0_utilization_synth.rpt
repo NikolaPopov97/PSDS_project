@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Tue Nov 22 18:18:13 2022
+| Date         : Fri May  5 19:37:19 2023
 | Host         : DESKTOP-US2MUQE running 64-bit major release  (build 9200)
 | Command      : report_utilization -file phaser_ip_v1_0_utilization_synth.rpt -pb phaser_ip_v1_0_utilization_synth.pb
 | Design       : phaser_ip_v1_0
@@ -30,11 +30,11 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |    4 |     0 |     53200 | <0.01 |
-|   LUT as Logic          |    4 |     0 |     53200 | <0.01 |
+| Slice LUTs*             |  156 |     0 |     53200 |  0.29 |
+|   LUT as Logic          |  156 |     0 |     53200 |  0.29 |
 |   LUT as Memory         |    0 |     0 |     17400 |  0.00 |
-| Slice Registers         |    5 |     0 |    106400 | <0.01 |
-|   Register as Flip Flop |    5 |     0 |    106400 | <0.01 |
+| Slice Registers         |  218 |     0 |    106400 |  0.20 |
+|   Register as Flip Flop |  218 |     0 |    106400 |  0.20 |
 |   Register as Latch     |    0 |     0 |    106400 |  0.00 |
 | F7 Muxes                |    0 |     0 |     26600 |  0.00 |
 | F8 Muxes                |    0 |     0 |     13300 |  0.00 |
@@ -54,34 +54,36 @@ Table of Contents
 | 0     |            _ |         Set |            - |
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
-| 0     |          Yes |           - |          Set |
-| 0     |          Yes |           - |        Reset |
-| 0     |          Yes |         Set |            - |
-| 5     |          Yes |       Reset |            - |
+| 1     |          Yes |           - |          Set |
+| 174   |          Yes |           - |        Reset |
+| 2     |          Yes |         Set |            - |
+| 41    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
 2. Memory
 ---------
 
-+----------------+------+-------+-----------+-------+
-|    Site Type   | Used | Fixed | Available | Util% |
-+----------------+------+-------+-----------+-------+
-| Block RAM Tile |    0 |     0 |       140 |  0.00 |
-|   RAMB36/FIFO* |    0 |     0 |       140 |  0.00 |
-|   RAMB18       |    0 |     0 |       280 |  0.00 |
-+----------------+------+-------+-----------+-------+
++-------------------+------+-------+-----------+-------+
+|     Site Type     | Used | Fixed | Available | Util% |
++-------------------+------+-------+-----------+-------+
+| Block RAM Tile    |   16 |     0 |       140 | 11.43 |
+|   RAMB36/FIFO*    |   16 |     0 |       140 | 11.43 |
+|     RAMB36E1 only |   16 |       |           |       |
+|   RAMB18          |    0 |     0 |       280 |  0.00 |
++-------------------+------+-------+-----------+-------+
 * Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E1 or one FIFO18E1. However, if a FIFO18E1 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E1
 
 
 3. DSP
 ------
 
-+-----------+------+-------+-----------+-------+
-| Site Type | Used | Fixed | Available | Util% |
-+-----------+------+-------+-----------+-------+
-| DSPs      |    0 |     0 |       220 |  0.00 |
-+-----------+------+-------+-----------+-------+
++----------------+------+-------+-----------+-------+
+|    Site Type   | Used | Fixed | Available | Util% |
++----------------+------+-------+-----------+-------+
+| DSPs           |    4 |     0 |       220 |  1.82 |
+|   DSP48E1 only |    4 |       |           |       |
++----------------+------+-------+-----------+-------+
 
 
 4. IO and GT Specific
@@ -90,7 +92,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   48 |     0 |       200 | 24.00 |
+| Bonded IOB                  |   68 |     0 |       200 | 34.00 |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
 | Bonded IOPADs               |    0 |     0 |       130 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         4 |  0.00 |
@@ -146,14 +148,21 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
+| FDCE     |  174 |        Flop & Latch |
 | OBUF     |   41 |                  IO |
-| IBUF     |    7 |                  IO |
-| FDRE     |    5 |        Flop & Latch |
-| LUT3     |    2 |                 LUT |
-| LUT6     |    1 |                 LUT |
-| LUT4     |    1 |                 LUT |
-| LUT2     |    1 |                 LUT |
-| LUT1     |    1 |                 LUT |
+| FDRE     |   41 |        Flop & Latch |
+| LUT5     |   39 |                 LUT |
+| LUT6     |   35 |                 LUT |
+| LUT2     |   34 |                 LUT |
+| LUT3     |   27 |                 LUT |
+| IBUF     |   27 |                  IO |
+| LUT4     |   25 |                 LUT |
+| CARRY4   |   20 |          CarryLogic |
+| RAMB36E1 |   16 |        Block Memory |
+| LUT1     |   16 |                 LUT |
+| DSP48E1  |    4 |    Block Arithmetic |
+| FDSE     |    2 |        Flop & Latch |
+| FDPE     |    1 |        Flop & Latch |
 | BUFG     |    1 |               Clock |
 +----------+------+---------------------+
 

@@ -13,7 +13,7 @@ while ~isDone(fileReader)
     sample = fileReader();
     for l = 1 : length(sample)
         %for stereo uncomment second command
-            x(l + k*1024) = -0.5000; %used to check functioning of IP core
+            x(l + k*1024) = 0.5000; %used to check functioning of IP core
             %x(l + k*1024) = sample(l,1);
         %sample(i + k*1024,2) = (x(i,2)); 
     end

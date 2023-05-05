@@ -34,7 +34,7 @@ use ieee.numeric_std.all;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
---------------------WHOLE MODULE NOT DATAPATH ONLY ------------------
+--------------------WHOLE MODULE, DATAPATH AND CONTROLPATH ------------------
 
 entity phaser_datapath is
     Port ( input_in : in STD_LOGIC_VECTOR (15 downto 0);

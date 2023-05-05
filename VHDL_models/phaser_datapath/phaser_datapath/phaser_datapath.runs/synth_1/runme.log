@@ -14,36 +14,53 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 62620 
+INFO: Helper process launched with PID 51396 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 344.547 ; gain = 101.359
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 343.957 ; gain = 100.898
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'phaser_datapath' [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:47]
+INFO: [Synth 8-638] synthesizing module 'phaser_datapath' [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:48]
 INFO: [Synth 8-638] synthesizing module 'coef_rom' [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/coef_rom.vhd:40]
 INFO: [Synth 8-5534] Detected attribute (* rom_style = "block" *) [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/coef_rom.vhd:43]
 INFO: [Synth 8-256] done synthesizing module 'coef_rom' (1#1) [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/coef_rom.vhd:40]
-INFO: [Synth 8-256] done synthesizing module 'phaser_datapath' (2#1) [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:47]
+WARNING: [Synth 8-614] signal 'valid_reg' is read in the process but is not in the sensitivity list [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:144]
+INFO: [Synth 8-256] done synthesizing module 'phaser_datapath' (2#1) [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:48]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 408.766 ; gain = 165.578
+Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 408.051 ; gain = 164.992
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 408.766 ; gain = 165.578
+Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 408.051 ; gain = 164.992
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 408.766 ; gain = 165.578
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 408.051 ; gain = 164.992
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5547] Trying to map ROM "ROM" into Block RAM due to explicit "ram_style" or "rom_style" specification
 INFO: [Device 21-403] Loading part xc7z010clg400-1
+INFO: [Synth 8-5547] Trying to map ROM "ROM" into Block RAM due to explicit "ram_style" or "rom_style" specification
 WARNING: [Synth 8-6014] Unused sequential element data_reg was removed.  [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/coef_rom.vhd:22102]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:158]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:160]
 INFO: [Synth 8-5546] ROM "up_next" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "up_next" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element k_reg_reg was removed.  [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:66]
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg_reg' in module 'phaser_datapath'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                             0000 |                             0000
+                    load |                             0001 |                             0001
+                     inc |                             0010 |                             0010
+                     dec |                             0011 |                             0011
+                  pre_f1 |                             0100 |                             0100
+                      f1 |                             0101 |                             0101
+                  pre_f2 |                             0110 |                             0110
+                      f2 |                             0111 |                             0111
+                     res |                             1000 |                             1000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'sequential' in module 'phaser_datapath'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 478.605 ; gain = 235.418
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 503.277 ; gain = 260.219
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -57,21 +74,23 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     16 Bit       Adders := 2     
 	   4 Input     16 Bit       Adders := 2     
+	   2 Input     16 Bit       Adders := 2     
 +---Registers : 
 	               32 Bit    Registers := 4     
-	               16 Bit    Registers := 9     
+	               16 Bit    Registers := 8     
 	                4 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
 +---ROMs : 
 	                              ROMs := 1     
 +---Muxes : 
-	  11 Input     16 Bit        Muxes := 3     
-	   2 Input      3 Bit        Muxes := 1     
-	  11 Input      1 Bit        Muxes := 9     
-	   2 Input      1 Bit        Muxes := 1     
-	  12 Input      1 Bit        Muxes := 1     
+	  10 Input      4 Bit        Muxes := 1     
+	  13 Input      4 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   9 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+	  11 Input      1 Bit        Muxes := 1     
+	   9 Input      1 Bit        Muxes := 9     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -82,19 +101,21 @@ Hierarchical RTL Component report
 Module phaser_datapath 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     16 Bit       Adders := 2     
 	   4 Input     16 Bit       Adders := 2     
+	   2 Input     16 Bit       Adders := 2     
 +---Registers : 
 	               32 Bit    Registers := 4     
-	               16 Bit    Registers := 8     
+	               16 Bit    Registers := 7     
 	                4 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
 +---Muxes : 
-	  11 Input     16 Bit        Muxes := 3     
-	   2 Input      3 Bit        Muxes := 1     
-	  11 Input      1 Bit        Muxes := 9     
-	   2 Input      1 Bit        Muxes := 1     
-	  12 Input      1 Bit        Muxes := 1     
+	  10 Input      4 Bit        Muxes := 1     
+	  13 Input      4 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   9 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+	  11 Input      1 Bit        Muxes := 1     
+	   9 Input      1 Bit        Muxes := 9     
 Module coef_rom 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -118,6 +139,7 @@ No constraint files found.
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "up_next" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element k_reg_reg was removed.  [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:66]
 DSP Report: Generating DSP a_x_pmid_reg0, operation Mode is: A*B.
 DSP Report: operator a_x_pmid_reg0 is absorbed into DSP a_x_pmid_reg0.
 DSP Report: Generating DSP a_x_in_reg0, operation Mode is: A*B.
@@ -191,7 +213,7 @@ WARNING: [Synth 8-3332] Sequential element (a_x_mid_reg_reg[2]) is unused and wi
 WARNING: [Synth 8-3332] Sequential element (a_x_mid_reg_reg[1]) is unused and will be removed from module phaser_datapath.
 WARNING: [Synth 8-3332] Sequential element (a_x_mid_reg_reg[0]) is unused and will be removed from module phaser_datapath.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:12 . Memory (MB): peak = 557.363 ; gain = 314.176
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 555.703 ; gain = 312.645
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -230,7 +252,7 @@ No constraint files found.
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 557.363 ; gain = 314.176
+Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 555.703 ; gain = 312.645
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -241,18 +263,18 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:74]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:73]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:76]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:75]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:67]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:69]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:67]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:74]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:77]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:76]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:68]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:67]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:71]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:67]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:70]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:68]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:69]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:68]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:72]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:68]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.srcs/sources_1/new/phaser_datapath.vhd:71]
 INFO: [Synth 8-4480] The timing for the instance rom/data_reg_0_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance rom/data_reg_0_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance rom/data_reg_0_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
@@ -270,7 +292,7 @@ INFO: [Synth 8-4480] The timing for the instance rom/data_reg_0_13 (implemented 
 INFO: [Synth 8-4480] The timing for the instance rom/data_reg_0_14 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance rom/data_reg_0_15 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 558.551 ; gain = 315.363
+Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:12 . Memory (MB): peak = 557.012 ; gain = 313.953
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -296,7 +318,7 @@ WARNING: [Synth 8-3332] Sequential element (a_reg_reg[15]) is unused and will be
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 558.551 ; gain = 315.363
+Finished IO Insertion : Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 557.012 ; gain = 313.953
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -309,7 +331,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 558.551 ; gain = 315.363
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 557.012 ; gain = 313.953
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -321,25 +343,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 558.551 ; gain = 315.363
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 557.012 ; gain = 313.953
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 558.551 ; gain = 315.363
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 557.012 ; gain = 313.953
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 558.551 ; gain = 315.363
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 557.012 ; gain = 313.953
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 558.551 ; gain = 315.363
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 557.012 ; gain = 313.953
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -356,35 +378,36 @@ Report Cell Usage:
 |      |Cell     |Count |
 +------+---------+------+
 |1     |BUFG     |     1|
-|2     |CARRY4   |    16|
+|2     |CARRY4   |    20|
 |3     |DSP48E1  |     4|
-|4     |LUT1     |     2|
-|5     |LUT2     |    72|
+|4     |LUT1     |    17|
+|5     |LUT2     |    33|
 |6     |LUT3     |    23|
-|7     |LUT4     |     9|
-|8     |LUT5     |    34|
+|7     |LUT4     |     7|
+|8     |LUT5     |    38|
 |9     |LUT6     |    33|
 |10    |RAMB36E1 |    16|
-|11    |FDCE     |   142|
-|12    |IBUF     |    19|
-|13    |OBUF     |    16|
+|11    |FDCE     |   145|
+|12    |FDPE     |     1|
+|13    |IBUF     |    19|
+|14    |OBUF     |    17|
 +------+---------+------+
 
 Report Instance Areas: 
 +------+---------+---------+------+
 |      |Instance |Module   |Cells |
 +------+---------+---------+------+
-|1     |top      |         |   387|
-|2     |  rom    |coef_rom |    37|
+|1     |top      |         |   374|
+|2     |  rom    |coef_rom |    34|
 +------+---------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 558.551 ; gain = 315.363
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 557.012 ; gain = 313.953
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 66 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 558.551 ; gain = 315.363
-Synthesis Optimization Complete : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 558.551 ; gain = 315.363
+Synthesis finished with 0 errors, 0 critical warnings and 69 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 557.012 ; gain = 313.953
+Synthesis Optimization Complete : Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 557.012 ; gain = 313.953
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 55 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 59 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -392,10 +415,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-48 Infos, 66 Warnings, 0 Critical Warnings and 0 Errors encountered.
+50 Infos, 69 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:28 . Memory (MB): peak = 653.523 ; gain = 423.285
+synth_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 652.137 ; gain = 421.891
 INFO: [Common 17-1381] The checkpoint 'C:/Users/user/PSDS_project/VHDL_models/phaser_datapath/phaser_datapath/phaser_datapath.runs/synth_1/phaser_datapath.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file phaser_datapath_utilization_synth.rpt -pb phaser_datapath_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.201 . Memory (MB): peak = 653.523 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Wed Nov 16 15:39:14 2022...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.298 . Memory (MB): peak = 652.137 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Fri May  5 19:38:21 2023...

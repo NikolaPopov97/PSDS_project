@@ -109,7 +109,7 @@ architecture arch_imp of phaser_ip_v1_0_S00_AXI is
 	-- ADDR_LSB is used for addressing 32/64 bit registers/memories
 	-- ADDR_LSB = 2 for 32 bits (n downto 2)
 	-- ADDR_LSB = 3 for 64 bits (n downto 3)
-	constant ADDR_LSB  : integer := (C_S_AXI_DATA_WIDTH/32)+ 1;
+	constant ADDR_LSB  : integer := 0;
 	constant OPT_MEM_ADDR_BITS : integer := 1;
 	------------------------------------------------
 	---- Signals for user logic register space example
@@ -228,9 +228,12 @@ begin
 	        case loc_addr is
 	          when b"00" =>
 	            input_wr_o <= '1';
+	            on_wr_o <= '0';
 	          when b"01" =>
+	            input_wr_o <= '0';
 	            on_wr_o <= '1';
 	          when others =>
+	            input_wr_o<='0';
 	        end case;
 	      end if;
 	    end if;

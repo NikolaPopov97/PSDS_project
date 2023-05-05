@@ -46,12 +46,12 @@ entity phaser_datapath is
 end phaser_datapath;
 
 architecture Behavioral of phaser_datapath is
-    type state_type is (idle, load, inc, dec, pre_f1, f1, pre_f2, f2, res);
-    signal state_reg, state_next: state_type;  
-    signal k_reg,k_next  : UNSIGNED (15 downto 0);
-    signal k : STD_LOGIC_VECTOR(15 downto 0);
-    signal mod_in: STD_LOGIC_VECTOR (15 downto 0);
-    signal up_reg, up_next, valid_reg, valid_next: STD_LOGIC;
+    type state_type is (idle, load, inc, dec, pre_f1, f1, pre_f2, f2, res); --State type definition
+    signal state_reg, state_next: state_type; --Signals used to generate state register
+    signal k_reg,k_next  : UNSIGNED (15 downto 0); --Signals used to generate counter register (used for calculating rom memory address)
+    signal k : STD_LOGIC_VECTOR(15 downto 0); --Signal which holds coeff address (values used for modulation)
+    signal mod_in: STD_LOGIC_VECTOR (15 downto 0); --Coefficient used for modulation loaded from ROM memory
+    signal up_reg, up_next, valid_reg, valid_next: STD_LOGIC; --Following declarations used for generating registers needed for calculation
     signal a_reg, input_reg, a_next, input_next : SIGNED (15 downto 0);
     signal PrevMidVal_reg, MidVal_reg, PrevOutVal_reg, output_reg, PrevInVal_reg: SIGNED(15 downto 0);
     signal PrevMidVal_next, MidVal_next, PrevOutVal_next, output_next,PrevInVal_next: SIGNED(15 downto 0);
@@ -96,7 +96,7 @@ begin
     end process;
     
     k <= std_logic_vector(22049 - k_reg);
-    --ROM
+    --ROM memory with coefficients loaded to mod_in signal
     rom:entity work.coef_rom(Behavioral)
         port map(clk => clk,
                  data => mod_in,
